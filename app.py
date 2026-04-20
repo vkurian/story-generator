@@ -26,4 +26,4 @@ if st.button("Generate Story"):
       email = response.choices[0].message.content
     st.markdown(email)
 else:
-  st.warning("Enter a description first!")s
+  st.warning("Enter a description first!")

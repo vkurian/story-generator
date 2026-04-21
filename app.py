@@ -1,5 +1,5 @@
 import streamlit as st
-from dotenv import load_dotenv
+#from dotenv import load_dotenv
 import os
 import openai
 from openai import OpenAI
@@ -7,11 +7,13 @@ from openai import OpenAI
 
 
  
-load_dotenv()
-openai.api_key = os.getenv("OPENAI_API_KEY")  
+#load_dotenv()
+#openai.api_key = os.getenv("OPENAI_API_KEY")  
+
+api_key = st.secrets.get("OPENAI_API_KEY", os.getenv("OPENAI_API_KEY"))
 
 st.title("Story Generator")
-prompt = st.text_input("write a story")
+prompt = st.text_input("Write a brief description of the story you want to generate:")
 genres = st.selectbox("Tone:", ["Fiction", "NonFiction", "Sci-Fi", "Horror", "Romance", "Comedy", "Thriller", "Mystery", "Fantasy", "Historical"])
 if st.button("Generate Story"):
    if prompt:
